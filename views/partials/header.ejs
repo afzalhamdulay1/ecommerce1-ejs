@@ -4,18 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Baggers</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="font-['helvetica_now_display']">
-    <nav class="w-full fixed top-0 left-0 px-5 py-3">
-        <h3 class="text-xl">Scatch</h3>
-        <div class="flex gap-5">
-            <a href="">Shop</a>
-            <a href="">Cart</a>
-            <a href="">My Account</a>
-            <a href="">logout</a>
+<body class="font-['helvetica_now_display'] pt-10">
+    <nav class="w-full fixed top-0 left-0 px-5 py-3 z-50 bg-white">
+        <div class="flex justify-between">
+            <h3 class="text-xl">Baggers</h3>
+            <div class="flex gap-5">
+                <% let isLoggedIn = typeof loggedIn !== "undefined" ? loggedIn : true %>
+                <% if(isLoggedIn) { %>
+                    <a href="/shop">Shop</a>
+                    <a href="/cart">Cart</a>
+                    <a href="">My Account</a>
+                    <a href="/users/logout" class="text-red-600 bg-yellow-300 px-3 rounded-md">logout</a>
+                <% } %>
+                
+            </div>
         </div>
+        <div class="bg-yellow-400 text-center p-3 mt-2"><h2>This project is under development! So, some features might be missing.</h2></div>
+        
     </nav>

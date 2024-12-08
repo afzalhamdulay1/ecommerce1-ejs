@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 const config = require('config')
 const dbgr = require('debug')("development: mongoose")
+require("dotenv").config();
 
-mongoose.connect(`${config.get("MONGODB_URI")}/scatch`)
+mongoose.connect(`${process.env.MONGODB_URI}`)
 .then(function(){
     console.log("connected to mongodb");
     

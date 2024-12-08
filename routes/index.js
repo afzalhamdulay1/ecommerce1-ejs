@@ -11,7 +11,8 @@ router.get('/', function (req, res) {
 
 router.get('/shop', isLoggedIn, async function (req, res) {
     let products = await productModel.find()
-    let success = req.flash("success")
+    // let success = req.flash("success")
+    let success = req.flash("success")[0];
     res.render("shop", { products, success })
 })
 
@@ -39,13 +40,15 @@ router.get('/shop', isLoggedIn, async function (req, res) {
 // })
 
 router.get('/cart', isLoggedIn, async function (req, res) {
-    let user = await userModel.findOne({ email: req.user.email });
+    let user = await userModel.findOne({ email: req.user.email });    
 
     // Populate the productId field inside the cart array
     await user.populate({
         path: "cart._id",  // Path to the field inside the cart array
         model: "Product"  // The model to populate (should be the Product model)
     });
+
+    
     res.render("cart", { user });
 });
 

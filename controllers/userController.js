@@ -24,7 +24,9 @@ module.exports.registerUser = async function (req, res) {
                     })
             
                     let token  = genToken(user)
-                    res.cookie("token", token).send("user created successfully")
+                    res.cookie("token", token)
+                    req.flash("success","User created and logged in successfully")
+                    res.redirect("/shop")
 
                 }
             })

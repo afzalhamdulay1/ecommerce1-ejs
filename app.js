@@ -27,6 +27,7 @@ app.use(flash())
 app.use(express.static(path.join(__dirname, "public")));
 app.set('view engine', 'ejs');
 
+
 app.use("/", webRouter)
 app.use("/owners", ownersRouter)
 app.use("/users", usersRouter)

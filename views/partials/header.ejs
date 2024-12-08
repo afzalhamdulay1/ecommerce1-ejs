@@ -10,9 +10,14 @@
 </head>
 
 <body class="font-['helvetica_now_display'] pt-10">
-    <nav class="w-full fixed top-0 left-0 px-5 py-3 z-50 bg-white">
+    <nav class="w-full fixed top-0 left-0 px-5 py-3 z-10 bg-white">
         <div class="flex justify-between">
             <h3 class="text-xl">Baggers</h3>
+            <% if (typeof(user) != "undefined" && user.fullname) { %>
+                <h3>Welcome, <%= user.fullname %>!</h3>
+            <% } else { %>
+                <h3>Welcome, Guest!</h3>
+            <% } %>
             <div class="flex gap-5">
                 <% let isLoggedIn = typeof loggedIn !== "undefined" ? loggedIn : true %>
                 <% if(isLoggedIn) { %>

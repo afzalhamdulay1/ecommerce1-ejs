@@ -16,7 +16,7 @@
     <div class="flex justify-between">
         <h3 class="text-xl">Baggers</h3>
         <div>
-            <% if (userFullname) { %>
+            <% if (typeof(userFullname) != "undefined") { %>
                 <h3>Welcome, <%= userFullname %>!</h3>
             <% } else { %>
                 <h3>Welcome, Guest!</h3>
